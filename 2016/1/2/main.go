@@ -12,17 +12,19 @@ var verbose = false
 func main() {
 	input := "L4, L1, R4, R1, R1, L3, R5, L5, L2, L3, R2, R1, L4, R5, R4, L2, R1, R3, L5, R1, L3, L2, R5, L4, L5, R1, R2, L1, R5, L3, R2, R2, L1, R5, R2, L1, L1, R2, L1, R1, L2, L2, R4, R3, R2, L3, L188, L3, R2, R54, R1, R1, L2, L4, L3, L2, R3, L1, L1, R3, R5, L1, R5, L1, L1, R2, R4, R4, L5, L4, L1, R2, R4, R5, L2, L3, R5, L5, R1, R5, L2, R4, L2, L1, R4, R3, R4, L4, R3, L4, R78, R2, L3, R188, R2, R3, L2, R2, R3, R1, R5, R1, L1, L1, R4, R2, R1, R5, L1, R4, L4, R2, R5, L2, L5, R4, L3, L2, R1, R1, L5, L4, R1, L5, L1, L5, L1, L4, L3, L5, R4, R5, R2, L5, R5, R5, R4, R2, L1, L2, R3, R5, R5, R5, L2, L1, R4, R3, R1, L4, L2, L3, R2, L3, L5, L2, L2, L1, L2, R5, L2, L2, L3, L1, R1, L4, R2, L4, R3, R5, R3, R4, R1, R5, L3, L5, L5, L3, L2, L1, R3, L4, R3, R2, L1, R3, R1, L2, R4, L3, L3, L3, L1, L2"
 
-	if d := distanceToFirstRevisitedLocation(input); d > 0 {
-		log.Printf("The first location visited twice is %d blocks away.", distanceToFirstRevisitedLocation(input))
+	startingPoint := position{x: 0, y: 0}
+
+	if d := distanceToFirstRevisitedLocation(startingPoint, input); d > 0 {
+		log.Printf("The first location visited twice is %d blocks away.", d)
 	} else {
 		log.Println("It looks like we didn't visit any location twice.")
 	}
 
 }
 
-func distanceToFirstRevisitedLocation(input string) int {
+func distanceToFirstRevisitedLocation(startingPoint position, input string) int {
 	direction := "N"
-	location := position{x: 0, y: 0}
+	location := startingPoint
 
 	moves := parseInput(input)
 
@@ -44,7 +46,7 @@ func distanceToFirstRevisitedLocation(input string) int {
 			for i := 0; i < move.distance; i++ {
 				location.x--
 				if list.seen(location) {
-					return distance(location)
+					return distance(startingPoint, location)
 				}
 				list.add(location)
 			}
@@ -53,7 +55,7 @@ func distanceToFirstRevisitedLocation(input string) int {
 			for i := 0; i < move.distance; i++ {
 				location.x++
 				if list.seen(location) {
-					return distance(location)
+					return distance(startingPoint, location)
 				}
 				list.add(location)
 			}
@@ -62,7 +64,7 @@ func distanceToFirstRevisitedLocation(input string) int {
 			for i := 0; i < move.distance; i++ {
 				location.y++
 				if list.seen(location) {
-					return distance(location)
+					return distance(startingPoint, location)
 				}
 				list.add(location)
 			}
@@ -71,7 +73,7 @@ func distanceToFirstRevisitedLocation(input string) int {
 			for i := 0; i < move.distance; i++ {
 				location.y--
 				if list.seen(location) {
-					return distance(location)
+					return distance(startingPoint, location)
 				}
 				list.add(location)
 			}
@@ -106,8 +108,8 @@ func parseInput(input string) []move {
 	return moves
 }
 
-func distance(location position) int {
-	return int(math.Abs(float64(location.x)) + math.Abs(float64(location.y)))
+func distance(startingPoint position, location position) int {
+	return int(math.Abs(float64(startingPoint.x)-float64(location.x)) + math.Abs(float64(startingPoint.y)-float64(location.y)))
 }
 
 type move struct {
