@@ -1,0 +1,14 @@
+BenchmarkFindSumCompareStringsConvertToIntAsNeeded/Short-4         	 2000000	       814 ns/op
+BenchmarkFindSumCompareStringsConvertToIntAsNeeded/Medium-4        	  200000	      8640 ns/op
+BenchmarkFindSumCompareStringsConvertToIntAsNeeded/Long-4          	   10000	    141948 ns/op
+BenchmarkFindSumConvertEverythingToIntBeforeComparing/Short-4      	 2000000	       694 ns/op
+BenchmarkFindSumConvertEverythingToIntBeforeComparing/Medium-4     	  200000	      8590 ns/op
+BenchmarkFindSumConvertEverythingToIntBeforeComparing/Long-4       	   10000	    143656 ns/op
+BenchmarkFindSumConvertAsNeededStopHalfway/Short-4                 	 2000000	       614 ns/op
+BenchmarkFindSumConvertAsNeededStopHalfway/Medium-4                	  200000	      5994 ns/op
+BenchmarkFindSumConvertAsNeededStopHalfway/Long-4                  	   10000	    104813 ns/op
+BenchmarkFindSumConvertEverythingStopHalfway/Short-4               	 3000000	       546 ns/op
+BenchmarkFindSumConvertEverythingStopHalfway/Medium-4              	  200000	      6531 ns/op
+BenchmarkFindSumConvertEverythingStopHalfway/Long-4                	   10000	    114546 ns/op
+PASS
+ok  	github.com/katzien/advent-of-code/2017/1/2	20.018s
