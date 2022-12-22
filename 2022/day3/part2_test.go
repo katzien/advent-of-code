@@ -15,44 +15,30 @@ wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
 ttgJtRGJQctTZtZT
 CrZsJsPPZsGzwwsLwLmpwMDw`
 
-	input := parseInput(list)
+	input := parseInputP2(list)
 
-	assert.Len(t, input, 6)
-	assert.Equal(t, Rucksack{
-		LeftCompartment:  []rune("vJrwpWtwJgWr"),
-		RightCompartment: []rune("hcsFMMfFFhFp"),
+	assert.Len(t, input, 2)
+	assert.Equal(t, Group{
+		Rucksacks: []string{
+			"vJrwpWtwJgWrhcsFMMfFFhFp",
+			"jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL",
+			"PmmdzqPrVvPwwTWBwg",
+		},
 	}, *input[0])
-	assert.Equal(t, Rucksack{
-		LeftCompartment:  []rune("jqHRNqRjqzjGDLGL"),
-		RightCompartment: []rune("rsFMfFZSrLrFZsSL"),
+	assert.Equal(t, Group{
+		Rucksacks: []string{
+			"wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn",
+			"ttgJtRGJQctTZtZT",
+			"CrZsJsPPZsGzwwsLwLmpwMDw",
+		},
 	}, *input[1])
-	assert.Equal(t, Rucksack{
-		LeftCompartment:  []rune("PmmdzqPrV"),
-		RightCompartment: []rune("vPwwTWBwg"),
-	}, *input[2])
-	assert.Equal(t, Rucksack{
-		LeftCompartment:  []rune("wMqvLMZHhHMvwLH"),
-		RightCompartment: []rune("jbvcjnnSBnvTQFn"),
-	}, *input[3])
-	assert.Equal(t, Rucksack{
-		LeftCompartment:  []rune("ttgJtRGJ"),
-		RightCompartment: []rune("QctTZtZT"),
-	}, *input[4])
-	assert.Equal(t, Rucksack{
-		LeftCompartment:  []rune("CrZsJsPPZsGz"),
-		RightCompartment: []rune("wwsLwLmpwMDw"),
-	}, *input[5])
 
-	findCommonItems(input)
+	findCommonItem(input)
 
-	assert.Equal(t, 'p', input[0].CommonItem)
-	assert.Equal(t, 'L', input[1].CommonItem)
-	assert.Equal(t, 'P', input[2].CommonItem)
-	assert.Equal(t, 'v', input[3].CommonItem)
-	assert.Equal(t, 't', input[4].CommonItem)
-	assert.Equal(t, 's', input[5].CommonItem)
+	assert.Equal(t, 'r', input[0].CommonItem)
+	assert.Equal(t, 'Z', input[1].CommonItem)
 
-	//sum := scorePriority(input)
-	//
-	//assert.Equal(t, int32(157), sum)
+	sum := scorePriorityP2(input)
+
+	assert.Equal(t, int32(70), sum)
 }
