@@ -5,7 +5,9 @@ import (
 	"testing"
 )
 
-func TestDay3P1(t *testing.T) {
+func TestPart2(t *testing.T) {
+	t.Parallel()
+
 	list := `vJrwpWtwJgWrhcsFMMfFFhFp
 jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
 PmmdzqPrVvPwwTWBwg
@@ -50,7 +52,7 @@ CrZsJsPPZsGzwwsLwLmpwMDw`
 	assert.Equal(t, 't', input[4].CommonItem)
 	assert.Equal(t, 's', input[5].CommonItem)
 
-	sum := scorePriority(input)
-
-	assert.Equal(t, int32(157), sum)
+	//sum := scorePriority(input)
+	//
+	//assert.Equal(t, int32(157), sum)
 }

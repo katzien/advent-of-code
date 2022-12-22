@@ -5,7 +5,9 @@ import (
 	"testing"
 )
 
-func TestDay1P1(t *testing.T) {
+func TestPart1(t *testing.T) {
+	t.Parallel()
+
 	list := `1000
 2000
 3000

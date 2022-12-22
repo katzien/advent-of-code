@@ -10,7 +10,9 @@ import (
 // In the second round, your opponent will choose Paper (B), and you choose Rock so you lose (X) with a score of 1 + 0 = 1.
 // In the third round, you will defeat your opponent's Scissors with Rock for a score of 1 + 6 = 7.
 // Now that you're correctly decrypting the ultra top secret strategy guide, you would get a total score of 12.
-func TestDay2P2(t *testing.T) {
+func TestPart2(t *testing.T) {
+	t.Parallel()
+
 	list := `A Y
 B X
 C Z`
