@@ -1,5 +1,9 @@
 package main
 
+import (
+	"github.com/katzien/advent-of-code/day3"
+)
+
 func main() {
-	Day2P2()
+	day3.Part1()
 }

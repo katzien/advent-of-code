@@ -1,4 +1,4 @@
-package main
+package day2
 
 import (
 	"fmt"
@@ -29,8 +29,8 @@ type Round struct {
 	MyMove       string
 }
 
-func Day2P1() {
-	list, err := os.ReadFile("./input/day_2")
+func Part1() {
+	list, err := os.ReadFile("./day2/input")
 	if err != nil {
 		panic(err)
 	}

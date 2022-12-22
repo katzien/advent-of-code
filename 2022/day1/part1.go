@@ -1,4 +1,4 @@
-package main
+package day1
 
 import (
 	"fmt"
@@ -7,8 +7,8 @@ import (
 	"strings"
 )
 
-func Day1P1() {
-	list, err := os.ReadFile("./input/day_1")
+func Part1() {
+	list, err := os.ReadFile("./day1/input")
 	if err != nil {
 		panic(err)
 	}

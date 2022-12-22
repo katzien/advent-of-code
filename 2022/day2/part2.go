@@ -1,4 +1,4 @@
-package main
+package day2
 
 import (
 	"fmt"
@@ -17,8 +17,8 @@ type RoundP2 struct {
 	EndResult    string
 }
 
-func Day2P2() {
-	list, err := os.ReadFile("./input/day_2")
+func Part2() {
+	list, err := os.ReadFile("./day2/input")
 	if err != nil {
 		panic(err)
 	}

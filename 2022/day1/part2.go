@@ -1,4 +1,4 @@
-package main
+package day1
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"sort"
 )
 
-func Day1P2() {
+func Part2() {
 	list, err := os.ReadFile("./input/day_1")
 	if err != nil {
 		panic(err)
