@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestExampleInputTopThree(t *testing.T) {
+func TestDay1P2(t *testing.T) {
 	list := `1000
 2000
 3000
