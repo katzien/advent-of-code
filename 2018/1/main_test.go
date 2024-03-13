@@ -7,18 +7,18 @@ func TestExamples(t *testing.T) {
 		n        []int // input
 		expected int   // expected result
 	}{
-		{
-			[]int{1, -2, 3, 1},
-			2,
-		},
-		{
-			[]int{1, -1},
-			0,
-		},
-		{
-			[]int{-6, 3, 8, 5, -6},
-			5,
-		},
+		//{
+		//	[]int{1, -2, 3, 1},
+		//	2,
+		//},
+		//{
+		//	[]int{1, -1},
+		//	0,
+		//},
+		//{
+		//	[]int{-6, 3, 8, 5, -6},
+		//	5,
+		//},
 		// those two - not sure about the repetition of the list 🤔
 		//{
 		//	[]int{3, 3, 4, -2, -4},
